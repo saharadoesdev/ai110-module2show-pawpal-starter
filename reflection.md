@@ -7,6 +7,8 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+_Three core actions the user should be able to perform: add a pet and owner, schedule a task like a walk, see today's tasks/schedule._
+
 **b. Design changes**
 
 - Did your design change during implementation?
@@ -69,3 +71,49 @@
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+
+
+
+### _Here's the initial mermaid diagram I had:_
+
+``` classDiagram
+class Owner {
++owner_id: int
++name: string
++available_minutes_per_day: int
++pets: listPet
++add_pet(pet: Pet)
++get_all_tasks(): listTask
+}
+
+class Pet {
++pet_id: int
++name: string
++species: string
++owner_id: int
++tasks: listTask
++add_task(task: Task)
++get_tasks_for_date(date): listTask
+}
+
+class Task {
++task_id: int
++title: string
++duration_minutes: int
++priority: int
++status: string
++mark_done()
+}
+
+class Scheduler {
++owner: Owner
++today_plan: listTask
++generate_daily_plan(date): listTask
++explain_plan(): string
+}
+
+Owner "1" --> "" Pet : owns
+Pet "1" --> "" Task : has
+Scheduler "1" --> "1" Owner : uses
+Scheduler "1" --> "*" Task : schedules
