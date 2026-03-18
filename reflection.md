@@ -9,10 +9,14 @@
 
 _Three core actions the user should be able to perform: add a pet and owner, schedule a task like a walk, see today's tasks/schedule._
 
+_I did 4 classes: Owner, Pet, Task, and Scheduler. Owner has a list of pets and an amount of available minutes per day. Pet has a name, species, owner, list of tasks for it, and the ability to add a task. Task has a title, duration, priority, and status, and tasks can be marked done. Scheduler is linked to an owner and can generate and explain today's plan._
+
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+
+_After AI feedback, tasks now have a pet id field to link them back to the pet, as well as a due date. Scheduler has a plan_reasons field now._
 
 ---
 

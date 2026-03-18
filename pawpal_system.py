@@ -7,10 +7,12 @@ from datetime import date
 @dataclass
 class Task:
 	task_id: int
+	pet_id: int
 	title: str
 	duration_minutes: int
 	priority: int
 	status: str
+	due_date: date | None = None
 
 	def mark_done(self) -> None:
 		pass
@@ -49,6 +51,7 @@ class Scheduler:
 	def __init__(self, owner: Owner) -> None:
 		self.owner = owner
 		self.today_plan: list[Task] = []
+		self.plan_reasons: dict[int, str] = {}
 
 	def generate_daily_plan(self, target_date: date) -> list[Task]:
 		pass
